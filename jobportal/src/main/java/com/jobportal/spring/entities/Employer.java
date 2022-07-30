@@ -1,9 +1,16 @@
 package com.jobportal.spring.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -16,15 +23,29 @@ public class Employer {
 	private String First_Name;
 	private String Last_Name;
 	private String Company;
+	
+	@Column(length = 200)
 	private String Address;
 	
 	private String Mobile;
+	
+	@Column(unique = true)
 	private String Email;
 	private String Password;
 	private String Role;
 	private Boolean Active;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "employer")
+	private List<Job> jobs = new ArrayList<>();
 	
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
 	@Override
 	public String toString() {
 		return "Employer [Employer_Id=" + Employer_Id + ", First_Name=" + First_Name + ", Last_Name=" + Last_Name

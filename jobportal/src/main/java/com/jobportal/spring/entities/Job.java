@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Job {
@@ -21,17 +22,18 @@ public class Job {
 	private String State;
 	private String District;
 		
-	private int Employer_Id;
+	@ManyToOne
+	private Employer employer;
 
 	@Override
 	public String toString() {
 		return "Job [Job_Id=" + Job_Id + ", Title=" + Title + ", Description=" + Description + ", Skill=" + Skill
 				+ ", Experience=" + Experience + ", Salary=" + Salary + ", PostingDate=" + PostingDate + ", State="
-				+ State + ", District=" + District + ", Employer_Id=" + Employer_Id + "]";
+				+ State + ", District=" + District + "]";
 	}
 
 	public Job(int job_Id, String title, String description, String skill, String experience, String salary,
-			String postingDate, String state, String district, int employer_Id) {
+			String postingDate, String state, String district) {
 		super();
 		Job_Id = job_Id;
 		Title = title;
@@ -42,7 +44,6 @@ public class Job {
 		PostingDate = postingDate;
 		State = state;
 		District = district;
-		Employer_Id = employer_Id;
 	}
 
 	public Job() {
@@ -122,14 +123,16 @@ public class Job {
 		District = district;
 	}
 
-	public long getEmployer_Id() {
-		return Employer_Id;
+	public Employer getEmployer() {
+		return employer;
 	}
 
-	public void setEmployer_Id(int employer_Id) {
-		Employer_Id = employer_Id;
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
 	}
 
+	
+	
 	
 	
 }
