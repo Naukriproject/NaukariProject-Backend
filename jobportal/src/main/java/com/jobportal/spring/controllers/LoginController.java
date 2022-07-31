@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobportal.spring.entities.Employer;
+import com.jobportal.spring.entities.User;
 import com.jobportal.spring.model.AuthenticationRequest;
 import com.jobportal.spring.model.AuthenticationResponse;
 import com.jobportal.spring.services.MyUserDetailsService;
+import com.jobportal.spring.services.UserService;
 import com.jobportal.spring.util.JwtUtil;
 
 @RestController
@@ -29,11 +31,15 @@ public class LoginController {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
-	//change to model
-		@PostMapping("/employer-login")
-		public Employer EmployerLogin(@RequestBody Employer employer)
+	@Autowired
+	private UserService userService;
+		
+		
+		@PostMapping("/register")
+		public User userregister(@RequestBody User user)
 		{
-			return null;
+			User result=userService.addUser(user);
+			return result;
 		}
 		
 		@PostMapping("/userlogin")
