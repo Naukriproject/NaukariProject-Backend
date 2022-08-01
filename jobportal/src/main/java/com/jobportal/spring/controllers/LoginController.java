@@ -14,6 +14,7 @@ import com.jobportal.spring.entities.Employer;
 import com.jobportal.spring.entities.User;
 import com.jobportal.spring.model.AuthenticationRequest;
 import com.jobportal.spring.model.AuthenticationResponse;
+import com.jobportal.spring.services.MyUserDetails;
 import com.jobportal.spring.services.MyUserDetailsService;
 import com.jobportal.spring.services.UserService;
 import com.jobportal.spring.util.JwtUtil;
@@ -47,8 +48,8 @@ public class LoginController {
 		{
 			try
 			{
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())
-					);
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(),
+					authenticationRequest.getPassword()));
 			}
 			catch(BadCredentialsException e)
 			{

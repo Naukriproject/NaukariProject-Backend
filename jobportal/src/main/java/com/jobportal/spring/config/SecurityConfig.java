@@ -9,8 +9,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.jobportal.spring.services.MyUserDetailsService;
 
@@ -19,19 +21,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	MyUserDetailsService myuserDetailService;
+	
+	@Autowired
+	private JwtAuthFilter jwtAuthFilter;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-		auth.userDetailsService(myuserDetailService);
+		try
+		{
+			auth.userDetailsService(myuserDetailService);
+		}
+		catch(Exception e)
+		{
+			throw new Exception("Error", e);	
+		}
+		
+		
 
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN").antMatchers("/employer/**")
-				.hasAnyRole("EMPLOYER", "ADMIN").antMatchers("/user/**").hasAnyRole("ADMIN", "USER").antMatchers("/")
-				.permitAll().and().formLogin();
+		http.csrf().disable().authorizeRequests()
+		.antMatchers("/admin/**").hasRole("ADMIN")
+		.antMatchers("/employer/**").hasRole("EMPLOYER")
+		.antMatchers("/user/**").hasRole("USER")
+		.antMatchers("/").permitAll();
+		
+		
+		http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
 	@Override

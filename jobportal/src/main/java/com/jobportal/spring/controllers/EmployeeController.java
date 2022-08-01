@@ -4,17 +4,22 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jobportal.spring.entities.Employee;
 import com.jobportal.spring.services.EmployeeService;
+import com.jobportal.spring.services.MyUserDetails;
+import com.jobportal.spring.services.MyUserDetailsService;
+import com.jobportal.spring.util.JwtUtil;
 
 @RestController
 @RequestMapping("/user")
@@ -23,12 +28,18 @@ public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
 	
+	@Autowired
+	MyUserDetailsService myUserDetailsService;
+	
+	@Autowired
+	JwtUtil jwtUtil;
 	
 	
 	// get Employee List
 	@GetMapping("/employee")
 	public List<Employee> getList()
 	{
+				
 		return this.employeeService.getEmployee();
 	}
 	
