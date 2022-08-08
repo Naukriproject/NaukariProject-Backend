@@ -22,8 +22,7 @@ public class Job {
 	private String State;
 	private String District;
 		
-	@ManyToOne
-	private Employer employer;
+	
 
 	@Override
 	public String toString() {
@@ -123,13 +122,7 @@ public class Job {
 		District = district;
 	}
 
-	public Employer getEmployer() {
-		return employer;
-	}
-
-	public void setEmployer(Employer employer) {
-		this.employer = employer;
-	}
+	
 
 	
 	

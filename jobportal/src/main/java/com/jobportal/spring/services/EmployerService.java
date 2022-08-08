@@ -33,12 +33,14 @@ public class EmployerService {
 	}
 	
 	//get employer by id
-	public Optional<Employer> getEmployerById(int id)
+	public Employer getEmployerById(int id)
 	{
-		Optional<Employer> employer = null;
+		Employer employer=null;
 		try
 		{
-		 	employer = this.employerRepository.findById(id);
+		 	Optional<Employer> emp = this.employerRepository.findById(id);
+		 	
+		 	employer=emp.get();
 		}
 		catch(Exception e)
 		{
@@ -47,6 +49,8 @@ public class EmployerService {
 		return employer;
 		
 	}
+	
+	
 	
 	//delete employer
 	public void deleteEmployer(int id)

@@ -1,7 +1,6 @@
 package com.jobportal.spring.controllers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +31,7 @@ public class EmployerController {
 	
 	// Get All Employees
 	@GetMapping("/employer")
-	public List<Employer> getAllEmployee()
+	public List<Employer> getAllEmployer()
 	{
 		return this.employerService.getEmployer();
 		
@@ -48,7 +47,7 @@ public class EmployerController {
 		
 	// Get Employer by Id
 	@GetMapping("/employer/{id}")
-	public Optional<Employer> getEmployer(@PathVariable("id") int id)
+	public Employer getEmployer(@PathVariable("id") int id)
 	{
 		return this.employerService.getEmployerById(id);
 	}
@@ -87,9 +86,9 @@ public class EmployerController {
 		
 		// find Job by Id
 		@GetMapping("/jobs/{id}")
-		public Optional<Job> getJobById(@PathVariable("id") int id)
+		public Job getJobById(@PathVariable("id") int id)
 		{
-			Optional<Job> result= this.jobService.getJobbyId(id);
+			Job result= this.jobService.getJobbyId(id);
 			return result;
 			
 		}

@@ -1,8 +1,12 @@
 package com.jobportal.spring.services;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.UserCredentialsDataSourceAdapter;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,13 +23,18 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
+		
 		Optional<User> user = userRepository.findByUsername(username);
 
 		user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
 
+		//MyUserDetails myUserDetail =user.map(MyUserDetails::new).get();
+		
 		return user.map(MyUserDetails::new).get();
 		
-		
+		//return new org.springframework.security.core.userdetails.User(myUserDetail.getUsername(), myUserDetail.getPassword(), myUserDetail.getAuthorities());
 	}
+
+	
+
 }

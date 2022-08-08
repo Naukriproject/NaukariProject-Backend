@@ -30,11 +30,21 @@ public class JobService {
 	}
 	
 	//get job by Id
-	public Optional<Job> getJobbyId(int id)
+	public Job getJobbyId(int id)
 	{
+		Job job=null;
+		try
+		{
+			Optional<Job> optjob= this.jobRepository.findById(id);
+			job=optjob.get();
+			
+		}
+		catch(Exception e)
+		{
+			
+		}
 		
-		Optional<Job> result = this.jobRepository.findById(id);
-		return result;
+		return job;
 	}
 	
 	//update job by Id
