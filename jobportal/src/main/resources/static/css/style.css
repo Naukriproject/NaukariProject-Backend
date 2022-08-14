@@ -456,3 +456,34 @@ height: calc(100% - 73px);
 height: 100%;
 }
 }
+
+.table.mytable {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    background-color: transparent;
+}
+
+.table.mytable thead tr th {
+    font-size: 17px ;
+    font-weight: 300;
+}
+
+.table.mytable>thead>tr>th{
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-color: #ddd;
+    font-weight: 300;
+}
+
+.table.mytable>tbody>tr>td{
+    padding: 12px 8px;
+    vertical-align: middle;
+    border-color: #ddd;
+    font-weight: 300;
+    font-size:14px;
+    color: #3c4858;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9 !important;
+}

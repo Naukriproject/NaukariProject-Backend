@@ -3,21 +3,28 @@
 <head>
 <meta charset="utf-8">
 <title>Job Portal</title>
-	<!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylessheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-	
-	<!-- Libraries Stylesheet -->
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+	rel="stylesheet">
 
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
-	<link href="../css/style.css" rel="stylesheet">
+<!-- Icon Font Stylessheet -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+	rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link href="../lib/animate/animate.min.css" rel="stylesheet">
+<link href="../lib/owlcarousel/assets/owl.carousel.min.css"
+	rel="stylesheet">
+
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/style.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container-xxl bg-white p-0">
@@ -67,55 +74,70 @@
 			</div>
 		</nav>
 		<!-- Navbar End -->
-		
+
 		<!-- Header End -->
-        <div class="container-xxl py-5 bg-dark page-header mb-5">
-            <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">Job Detail</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">Job Detail</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- Header End -->
+		<div class="container-xxl py-5 bg-dark page-header mb-5">
+			<div class="container my-5 pt-5 pb-4">
+				<h1 class="display-3 text-white mb-3 animated slideInDown">Job
+					Detail</h1>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb text-uppercase">
+						<li class="breadcrumb-item"><a href="#">Home</a></li>
+						<li class="breadcrumb-item"><a href="#">Pages</a></li>
+						<li class="breadcrumb-item text-white active" aria-current="page">Job
+							Detail</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<!-- Header End -->
 
 
-        <!-- Job Detail Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="row gy-5 gx-4">
-                    <div class="col-lg-8">
-                        <div class="d-flex align-items-center mb-5">
-                            <img class="flex-shrink-0 img-fluid border rounded" src="https://trilectus.com/wp-content/uploads/2021/12/Logo-modified.png" alt="" style="width: 80px; height: 80px;">
-                            <div class="text-start ps-4">
-                                <h3 class="mb-3" th:text="${job.title}"></h3>
-                                <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i><span th:text="${job.district}"></span></span>
-                                <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i><span th:text="'₹ '+ ${job.salary} + ' /Month'"></span></span>
-                            </div>
-                        </div>
+		<!-- Job Detail Start -->
+		<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+			<div class="container">
+				<div class="row gy-5 gx-4">
+					<div class="col-lg-8">
+						
+							<div class="d-flex align-items-center mb-5">
+								<img class="flex-shrink-0 img-fluid border rounded"
+									src="https://trilectus.com/wp-content/uploads/2021/12/Logo-modified.png"
+									alt="" style="width: 80px; height: 80px;">
+								<div class="text-start ps-4">
+									<h3 class="mb-3" th:text="${job.title}"></h3>
+									<span class="text-truncate me-3"><i
+										class="fa fa-map-marker-alt text-primary me-2"></i><span
+										th:text="${job.district}"></span></span> <span
+										class="text-truncate me-3"><i
+										class="far fa-clock text-primary me-2"></i>Full Time</span> <span
+										class="text-truncate me-0"><i
+										class="far fa-money-bill-alt text-primary me-2"></i><span
+										th:text="'₹ '+ ${job.salary} + ' /Month'"></span></span>
+								</div>
+							</div>
 
-                        <div class="mb-5">
-                            <h4 class="mb-3">Job description</h4>
-                            <p><span th:text="${job.description}"></span></p>
-                            
-                        </div>
-        
-                        <div class="">
-                            <h4 class="mb-4">Apply For The Job</h4>
-                            
-                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>       
-                        </div>
-                    </div>
-        
-                    <!-- <div class="col-lg-4">
+							<div class="mb-5">
+								<!-- <input type="hidden" th:field="${job.jobId}"> -->
+								<h4 class="mb-3">Job description</h4>
+								<p>
+									<span th:text="${job.description}"></span>
+								</p>
+
+							</div>
+
+							<div class="">
+								<h4 class="mb-4">Apply For The Job</h4>
+
+								<a th:href="@{/applyjobpage/{id}(id=${job.jobId})}" class="btn btn-primary w-100">Apply
+									Now</a>
+							</div>
+						
+					</div>
+
+					<div class="col-lg-4">
                         <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                             <h4 class="mb-4">Employer Detail</h4>
-                            <p>Name : <span th:text="${employer.first_Name} + ' '+ ${employer.last_Name}"></span></p>
+                            <p>Name : <span th:text="${employer.name}"></span></p>
                             
                             <p><span>Mobile </span>: <b th:text="${employer.mobile}"></b></p>
                             <p><span>Email </span>: <b th:text="${employer.email}"></b></p>
@@ -127,21 +149,22 @@
                             <p><span>Company </span>: <b th:text="${employer.company}"></b></p>
                             <p><span>Address </span>: <b th:text="${employer.address}"></b></p>
                         </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-        <!-- Job Detail End -->
+                    </div>
+				</div>
+			</div>
+		</div>
+		<!-- Job Detail End -->
 	</div>
 	<!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/wow/wow.min.js"></script>
-    <script src="../lib/easing/easing.min.js"></script>
-    <script src="../lib/waypoints/waypoints.min.js"></script>
-    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="../lib/wow/wow.min.js"></script>
+	<script src="../lib/easing/easing.min.js"></script>
+	<script src="../lib/waypoints/waypoints.min.js"></script>
+	<script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="../js/main.js"></script>
+	<!-- Template Javascript -->
+	<script src="../js/main.js"></script>
 </body>
 </html>

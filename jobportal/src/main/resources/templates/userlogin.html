@@ -42,7 +42,7 @@
 		<!-- Navbar Start -->
 		<nav
 			class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-			<a th:href="@{/index}"
+			<a href="index.html"
 				class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
 				<h1 class="m-0 text-primary">Job Portal</h1>
 			</a>
@@ -52,10 +52,10 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a th:href="@{/index}" class="nav-item nav-link">Home</a>
+					<a href="index.html" class="nav-item nav-link active">Home</a>
 					<!-- <a href="about.html" class="nav-item nav-link">About</a> -->
 					<div class="nav-item dropdown">
-						<a th:href="@{/jobs}" class="nav-link active">Jobs</a>
+						<a href="#" class="nav-link">Jobs</a>
 					</div>
 					<!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -74,67 +74,95 @@
 			</div>
 		</nav>
 		<!-- Navbar End -->
-		<!-- Header End -->
-		<div class="container-xxl py-5 bg-dark page-header mb-5">
-			<div class="container my-5 pt-5 pb-4">
-				<h1 class="display-3 text-white mb-3 animated slideInDown">Job
-					List</h1>
-				<nav aria-label="breadcrumb">
-					<ol class="breadcrumb text-uppercase">
-						<li class="breadcrumb-item"><a href="#">Home</a></li>
-						<li class="breadcrumb-item"><a href="#">Pages</a></li>
-						<li class="breadcrumb-item text-white active" aria-current="page">Job
-							List</li>
-					</ol>
-				</nav>
-			</div>
-		</div>
-		<!-- Header End -->
-		<!-- Jobs Start -->
-		<div class="container-xxl py-5">
-			<div class="container">
-				<h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job
-					Listing</h1>
-				<div th:each="jobs: ${job}" id="tab-1"
-					class="tab-pane fade show p-0 active">
-					<div class="job-item p-4 mb-4">
-						<div class="row g-4">
-							<div class="col-sm-12 col-md-8 d-flex align-items-center">
-								<img class="flex-shrink-0 img-fluid border rounded"
-									src="https://trilectus.com/wp-content/uploads/2021/12/Logo-modified.png"
-									alt="" style="width: 80px; height: 80px;">
-								<div class="text-start ps-4">
-									<h5 class="" th:text="${jobs.title}"></h5>
-									<small class="d-block mb-2">Required Skills : <span
-										th:text="${jobs.skill}"></span></small> <span
-										class="text-truncate me-3"><i
-										class="fa fa-map-marker-alt text-primary me-2"></i> <span
-										th:text="${jobs.district}"></span></span> <span
-										class="text-truncate me-0"><i
-										class="far fa-money-bill-alt text-primary me-2"></i><span
-										th:text="'₹ '+ ${jobs.salary} + ' /Month'"></span></span>
-								</div>
-							</div>
-							<div
-								class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-								<div class="d-flex mb-3">
-									<a class="btn btn-light btn-square me-3"
-										th:href="@{/jobs/{id}(id=${jobs.jobId})}"><i
-										class="far fa-eye text-primary"></i></a> <a
-										class="btn btn-primary" href="">Apply Now</a>
-								</div>
-								<small class="text-truncate"><i
-									class="far fa-calendar-alt text-primary me-2"></i>Post Date : <span
-									th:text="${jobs.postingDate}"></span></small>
-							</div>
-						</div>
+		<section class="vh-100">
+			<div class="container-fluid h-custom">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col-md-9 col-lg-6 col-xl-5">
+						<img
+							src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+							class="img-fluid" alt="Sample image">
 					</div>
+					<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+						<form>
+							<div
+								class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+								<h3 class=" mb-0 me-3 mb-4">Job Seeker Login</h3>
+								<!-- <button type="button" class="btn btn-primary btn-floating mx-1">
+									<i class="fab fa-facebook-f"></i>
+								</button>
 
+								<button type="button" class="btn btn-primary btn-floating mx-1">
+									<i class="fab fa-twitter"></i>
+								</button>
 
+								<button type="button" class="btn btn-primary btn-floating mx-1">
+									<i class="fab fa-linkedin-in"></i>
+								</button> -->
+							</div>
+
+						<!-- 	<div class="divider d-flex align-items-center my-4">
+								<p class="text-center fw-bold mx-3 mb-0">Or</p>
+							</div> -->
+
+							<!-- Email input -->
+							<div class="form-outline mb-4">
+								<input type="email" id="form3Example3"
+									class="form-control form-control-lg"
+									placeholder="Enter a valid email address" /> <label
+									class="form-label" for="form3Example3">Email address</label>
+							</div>
+
+							<!-- Password input -->
+							<div class="form-outline mb-3">
+								<input type="password" id="form3Example4"
+									class="form-control form-control-lg"
+									placeholder="Enter password" /> <label class="form-label"
+									for="form3Example4">Password</label>
+							</div>
+
+							<div class="d-flex justify-content-between align-items-center">
+								<!-- Checkbox -->
+								<div class="form-check mb-0">
+									<input class="form-check-input me-2" type="checkbox" value=""
+										id="form2Example3" /> <label class="form-check-label"
+										for="form2Example3"> Remember me </label>
+								</div>
+								<a href="#!" class="text-body">Forgot password?</a>
+							</div>
+
+							<div class="text-center text-lg-start mt-4 pt-2">
+								<button type="button" class="btn btn-primary btn-lg"
+									style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+								<p class="small fw-bold mt-2 pt-1 mb-0">
+									Don't have an account? <a th:href="@{/signup}" class="link-danger">Register</a>
+								</p>
+							</div>
+
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Jobs End -->
+			<div
+				class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+				<!-- Copyright -->
+				<div class="text-white mb-3 mb-md-0">Copyright © 2020. All
+					rights reserved.</div>
+				<!-- Copyright -->
+
+				<!-- Right -->
+				<div>
+					<a href="#!" class="text-white me-4"> <i
+						class="fab fa-facebook-f"></i>
+					</a> <a href="#!" class="text-white me-4"> <i
+						class="fab fa-twitter"></i>
+					</a> <a href="#!" class="text-white me-4"> <i class="fab fa-google"></i>
+					</a> <a href="#!" class="text-white"> <i class="fab fa-linkedin-in"></i>
+					</a>
+				</div>
+				<!-- Right -->
+			</div>
+		</section>
 	</div>
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

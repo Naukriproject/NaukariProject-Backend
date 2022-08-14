@@ -61,7 +61,7 @@ public class EmployerService {
 	// update employer
 	public void updateEmployer(Employer employer, int id) {
 
-		employer.setEmployer_Id(id);
+		employer.setEmployerId(id);
 		this.employerRepository.save(employer);
 		
 	}

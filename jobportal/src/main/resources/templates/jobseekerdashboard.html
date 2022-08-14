@@ -23,17 +23,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a th:href="@{/employer/addjob/{id}(id=${employer.employerId})}" class="nav-item nav-link">Add
-						Job</a> <a th:href="@{/employer/myjoblist/{id}(id=${employer.employerId})}" class="nav-item nav-link">Job
-						List</a> <a th:href="@{/employer/applied}" class="nav-item nav-link">Applied
+					 <a th:href="@{/user/applied}" class="nav-item nav-link">Applied
 						Jobs</a>
 
 					<div class="nav-item dropdown">
 						<a href="#" class="nav-link dropdown-toggle"
 							data-bs-toggle="dropdown">Profile</a>
 						<div class="dropdown-menu rounded-0 m-0">
-							<a th:href="@{/employer/profile}" class="dropdown-item">View
-								Profile</a> <a th:href="@{/employer/changepassword} "
+							<a th:href="@{/user/profile}" class="dropdown-item">View
+								Profile</a> <a th:href="@{/user/changepassword} "
 								class="dropdown-item">Change Password</a>
 
 						</div>
@@ -55,19 +53,20 @@
 								src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
 								alt="avatar" class="rounded-circle img-fluid"
 								style="width: 150px;">
-							<h5 class="my-3" th:text="${employer.name}"></h5>
-							<p class="text-muted mb-1">H R</p>
-							<p class="text-muted mb-4" th:text="${employer.company}"></p>
+							<h5 class="my-3"><span th:text="${jobseeker.firstName}"></span> <span th:text="${jobseeker.lastName}"></span></h5>
+							<p class="text-muted mb-1"><span th:text="${jobseeker.mobile}"></span></p>
+							<p class="text-muted mb-4" th:text="${jobseeker.email}"></p>
+							<p class="text-muted mb-4" th:text="${jobseeker.age}"></p>
 							<div class="d-flex justify-content-center mb-2">
-								<a th:href="@{/employer/addjob/{id}(id=${employer.employerId})}" class="btn btn-primary">Add
-									Jobs</a> <a th:href="@{/employer/myjoblist/{id}(id=${employer.employerId})}"
+								<a class="btn btn-primary">Applied
+									Jobs</a> <a th:href="@{/jobseeker/joblist}"
 									class="btn btn-outline-primary ms-1">ViewJobs</a>
 							</div>
 						</div>
 					</div>
 					<div class="card mb-4 mb-lg-0">
 						<div class="card-body">
-							<a th:href="@{/employer/editprofile/{id}(id=${employer.employerId})}" class="btn d-block btn-primary ms-1">Edit Profile</a>
+							<a th:href="@{/jobseeker/editprofile/{id}(id=${jobseeker.jobSeekerId})}" class="btn d-block btn-primary ms-1">Edit Profile</a>
 							<a class="btn d-block btn-danger ms-1 mt-3">Logout</a>
 						</div>
 					</div>
@@ -80,7 +79,7 @@
 									<p class="mb-0">Full Name</p>
 								</div>
 								<div class="col-sm-9">
-									<p class="text-muted mb-0" th:text="${employer.name}"></p>
+									<p class="text-muted mb-0" th:text="${jobseeker.firstName}"></p>
 								</div>
 							</div>
 							<hr>
@@ -89,7 +88,7 @@
 									<p class="mb-0">Email</p>
 								</div>
 								<div class="col-sm-9">
-									<p th:text="${employer.email}" class="text-muted mb-0"></p>
+									<p th:text="${jobseeker.email}" class="text-muted mb-0"></p>
 								</div>
 							</div>
 							<hr>
@@ -98,17 +97,25 @@
 									<p class="mb-0">Mobile</p>
 								</div>
 								<div class="col-sm-9">
-									<p class="text-muted mb-0" th:text="${employer.mobile}"></p>
+									<p class="text-muted mb-0" th:text="${jobseeker.mobile}"></p>
 								</div>
 							</div>
-
+<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Gender</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0" th:text="${jobseeker.gender}"></p>
+								</div>
+							</div>
 							<hr>
 							<div class="row">
 								<div class="col-sm-3">
 									<p class="mb-0">Address</p>
 								</div>
 								<div class="col-sm-9">
-									<p class="text-muted mb-0" th:text="${employer.address}"></p>
+									<p class="text-muted mb-0" th:text="${jobseeker.district}"></p>
 								</div>
 							</div>
 
@@ -118,7 +125,7 @@
 						<div class="col-md-12">
 							<div class="card mb-4 mb-md-0">
 								<div class="card-body">
-									<h5 class="mb-4">Job List</h5>
+									<h5 class="mb-4">Applied Job List</h5>
 									<div th:each="jobs: ${jobs}" id="tab-1"
 										class="tab-pane fade show p-0 active">
 										<div class="job-item p-4 mb-4 border-bottom">

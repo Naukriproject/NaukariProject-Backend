@@ -9,7 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.jobportal.spring.entities.User;
+import com.jobportal.spring.entities.Employer;
+import com.jobportal.spring.entities.JobSeeker;
 
 public class MyUserDetails implements UserDetails {
 
@@ -19,13 +20,21 @@ public class MyUserDetails implements UserDetails {
 	private List<GrantedAuthority> authorities;
 	//
 
-	public MyUserDetails(User user) {
-		this.userName = user.getUsername();
-		this.password = user.getPassword();
-		this.active = user.isActive();
-		this.authorities = Arrays.stream(user.getRoles().split(",")).map(SimpleGrantedAuthority::new)
+	public MyUserDetails(Employer employer) {
+		this.userName = employer.getEmail();
+		this.password = employer.getPassword();
+		this.active = employer.isActive();
+		this.authorities = Arrays.stream(employer.getRoles().split(",")).map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
 	}
+	
+//	public MyUserDetails(JobSeeker jobSeeker) {
+//		this.userName = jobSeeker.getEmail();
+//		this.password = jobSeeker.getPassword();
+//		this.active = jobSeeker.isActive();
+//		this.authorities = Arrays.stream(jobSeeker.getRoles().split(",")).map(SimpleGrantedAuthority::new)
+//				.collect(Collectors.toList());
+//	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

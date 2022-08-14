@@ -1,10 +1,14 @@
 package com.jobportal.spring.entities;
 
-import javax.persistence.Entity;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -12,31 +16,40 @@ public class Employer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Employer_Id;
+	private int employerId;
 	
-	private String Name;
-	private String Company;
-	private String Address;
-	private String Mobile;
-	private String Email;
-	private Boolean Active;
+	private String name;
+	private String company;
+	private String address;
+	private String mobile;
+	private String email;
+	private String password;
+	private String roles;
+	private boolean active;
 	
+	@OneToMany(mappedBy = "employer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Job> jobs;
+
 	@Override
 	public String toString() {
-		return "Employer [Employer_Id=" + Employer_Id + ", Name=" + Name + ", Company=" + Company + ", Address="
-				+ Address + ", Mobile=" + Mobile + ", Email=" + Email + ", Active=" + Active + "]";
+		return "Employer [employerId=" + employerId + ", name=" + name + ", company=" + company + ", address=" + address
+				+ ", mobile=" + mobile + ", email=" + email + ", password=" + password + ", roles=" + roles
+				+ ", active=" + active + ", jobs=" + jobs + "]";
 	}
 
-	public Employer(int employer_Id, String name, String company, String address, String mobile, String email,
-			Boolean active) {
+	public Employer(int employerId, String name, String company, String address, String mobile, String email,
+			String password, String roles, boolean active, List<Job> jobs) {
 		super();
-		Employer_Id = employer_Id;
-		Name = name;
-		Company = company;
-		Address = address;
-		Mobile = mobile;
-		Email = email;
-		Active = active;
+		this.employerId = employerId;
+		this.name = name;
+		this.company = company;
+		this.address = address;
+		this.mobile = mobile;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+		this.active = active;
+		this.jobs = jobs;
 	}
 
 	public Employer() {
@@ -44,61 +57,88 @@ public class Employer {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getEmployer_Id() {
-		return Employer_Id;
+	public int getEmployerId() {
+		return employerId;
 	}
 
-	public void setEmployer_Id(int employer_Id) {
-		Employer_Id = employer_Id;
+	public void setEmployerId(int employerId) {
+		this.employerId = employerId;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 
 	public String getCompany() {
-		return Company;
+		return company;
 	}
 
 	public void setCompany(String company) {
-		Company = company;
+		this.company = company;
 	}
 
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 	}
 
 	public String getMobile() {
-		return Mobile;
+		return mobile;
 	}
 
 	public void setMobile(String mobile) {
-		Mobile = mobile;
+		this.mobile = mobile;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
-	public Boolean getActive() {
-		return Active;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setActive(Boolean active) {
-		Active = active;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public List<Job> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+
+	
+	
 	
 	
 	

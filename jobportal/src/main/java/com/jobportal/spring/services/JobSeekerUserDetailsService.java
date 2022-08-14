@@ -1,39 +1,36 @@
 package com.jobportal.spring.services;
 
-
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.jobportal.spring.dao.UserRepository;
-import com.jobportal.spring.entities.User;
+import com.jobportal.spring.dao.EmployerRepository;
+import com.jobportal.spring.dao.JobSeekerRepository;
+import com.jobportal.spring.entities.Employer;
+import com.jobportal.spring.entities.JobSeeker;
 
 @Component
-public class MyUserDetailsService implements UserDetailsService {
+public class JobSeekerUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	UserRepository userRepository;
-
+	JobSeekerRepository jobSeekerRepository;
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Optional<User> user = userRepository.findByUsername(username);
-
-		user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
+//		Optional<JobSeeker> jobSeeker = jobSeekerRepository.findByEmail(username);
+//		jobSeeker.orElseThrow(() -> new UsernameNotFoundException("Not found: " + username));
 
 		//MyUserDetails myUserDetail =user.map(MyUserDetails::new).get();
 		
-		//return user.map(MyUserDetails::new).get();
+		//return jobSeeker.map(MyUserDetails::new).get();
 		return null;
 		
-		//return new org.springframework.security.core.userdetails.User(myUserDetail.getUsername(), myUserDetail.getPassword(), myUserDetail.getAuthorities());
+		
 	}
-
-	
 
 }

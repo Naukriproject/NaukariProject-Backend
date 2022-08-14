@@ -79,9 +79,9 @@ button:focus {
 				<div class="card">
 					<h5 class="text-center mb-4">Add Job Form</h5>
 					<form class="form-card" method="post"
-						th:action="@{/employer/save/{id}(id=${id})}" th:object="${job}">
+						th:action="@{/employer/updatejob/{id}(id=*{jobId})}" th:object="${job}">
 						
-						<input class="form-control" type="hidden" th:value="${id}" />
+						<input class="form-control" type="hidden" th:value="*{jobId}" />
 
 					<div class="row justify-content-between text-left">
 

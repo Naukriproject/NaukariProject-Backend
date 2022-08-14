@@ -105,15 +105,17 @@
 												<div class="p-5">
 													<h3 class="fw-normal mb-5 text-white">Job Seeker
 														Registration</h3>
-													<form action="post" th:action="@{/saveemployee}"
-														th:object="${employee}">
+													<form method="post" th:action="@{/savejobseeker}"
+														th:object="${jobseeker}">
 
 
 														<div class="row">
 															<div class="mb-4 pb-2 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="firstName"
-																		th:field="*{first_Name}"
+																
+															
+																
+																	<input type="text" id="form3Examplea2" th:field="*{firstName}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea2">First
 																		Name</label>
@@ -122,57 +124,42 @@
 
 															<div class="mb-4 pb-2 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea3"
-																		th:field="*{last_Name}"
+																	<input type="text" id="form3Examplea3" th:field="*{lastName}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea3">Last
 																		Name</label>
 																</div>
 															</div>
-															<div class="col-md-6 mb-4 pb-2">
+															<div class="col-md-3 mb-4 pb-2">
 
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea4"
-																		th:field="*{mobile}"
+																	<input type="text" id="form3Examplea4" th:field="*{mobile}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea4">Mobile
 																		Number</label>
 																</div>
 
 															</div>
-															<div class="col-md-6 mb-4 pb-2">
-
+															
+															<div class="mb-4 pb-2 col-md-3">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea5"
-																		th:field="*{email}"
-																		class="form-control form-control-lg" /> <label
-																		class="form-label" for="form3Examplea5">Email
-																		Id</label>
-																</div>
-
-															</div>
-															<div class="mb-4 pb-2 col-md-4">
-																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea6"
-																		th:field="*{gender}"
+																	<input type="text" id="form3Examplea6" th:field="*{gender}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea6">Gender</label>
 																</div>
 															</div>
-															<div class="col-md-4 mb-4 pb-2">
+															<div class="col-md-3 mb-4 pb-2">
 
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea7"
-																		th:field="*{age}" class="form-control form-control-lg" />
+																	<input type="text" id="form3Examplea7" th:field="*{age}" class="form-control form-control-lg" />
 																	<label class="form-label" for="form3Examplea7">Age</label>
 																</div>
 
 															</div>
-															<div class="col-md-4 mb-4 pb-2">
+															<div class="col-md-3 mb-4 pb-2">
 
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea8"
-																		th:field="*{experience}"
+																	<input type="text" id="form3Examplea8" th:field="*{experience}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea8">Experience</label>
 																</div>
@@ -181,8 +168,7 @@
 														</div>
 														<div class="mb-4">
 															<div class="form-outline form-white">
-																<input type="text" id="form3Examplea9"
-																	th:field="*{skill}"
+																<input type="text" id="form3Examplea9" th:field="*{skill}"
 																	class="form-control form-control-lg" /> <label
 																	class="form-label" for="form3Examplea9">Skills</label>
 															</div>
@@ -194,16 +180,14 @@
 
 															<div class="mb-4 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea9"
-																		th:field="*{district}"
+																	<input type="text" id="form3Examplea9" th:field="*{district}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea9">District</label>
 																</div>
 															</div>
 															<div class="mb-4 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea9"
-																		th:field="*{state}"
+																	<input type="text" id="form3Examplea9" th:field="*{state}"
 																		class="form-control form-control-lg" /> <label
 																		class="form-label" for="form3Examplea9">State</label>
 																</div>
@@ -218,16 +202,16 @@
 															</div>
 															<div class="mb-4 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea9"
+																	<input type="text" id="form3Examplea9" th:field="*{email}"
 																		class="form-control form-control-lg" /> <label
-																		class="form-label" for="form3Examplea9">Username</label>
+																		class="form-label" for="form3Examplea9">Email Id</label>
 																</div>
 															</div>
 															<div class="mb-4 col-md-6">
 																<div class="form-outline form-white">
-																	<input type="text" id="form3Examplea9"
+																	<input type="text" id="form3Examplea9" th:field="*{password}"
 																		class="form-control form-control-lg" /> <label
-																		class="form-label" for="form3Examplea9">Password</label>
+																		class="form-label"  for="form3Examplea9">Password</label>
 																</div>
 															</div>
 														</div>
@@ -235,14 +219,13 @@
 														<div
 															class="form-check d-flex justify-content-start mb-4 pb-3">
 															<input class="form-check-input me-3" type="checkbox"
-																value="" id="form2Example3c" /> <label
+																value="" id="form2Example3c" required /> <label
 																class="form-check-label text-white" for="form2Example3">
-																I do accept the <a href="#!" class="text-white"><u>Terms
-																		and Conditions</u></a> of your site.
+																I do accept the <a href="#!" class="text-white">Terms
+																		and Conditions</a> of your site.
 															</label>
 														</div>
-
-														<button type="button" class="btn btn-light btn-lg"
+														<button type="submit" class="btn btn-light btn-lg"
 															data-mdb-ripple-color="dark">Register</button>
 													</form>
 												</div>
@@ -265,82 +248,70 @@
 													Registration</h3>
 
 
-												<form action="post" th:action="@{/saveemployer}"
+												<form method="post" th:action="@{/saveemployer}"
 													th:object="${employer}">
 													<div class="row">
 														<div class="col-md-6 mb-4 pb-2">
 
 															<div class="form-outline">
-																<input type="text" id="form3Examplev2" th:field="*{first_Name}"
-																	class="form-control form-control-lg" /> <label
-																	class="form-label" for="form3Examplev2">First
-																	name</label>
+																<input type="text" id="form3Examplev2"
+																	th:field="*{name}" class="form-control form-control-lg" />
+																<label class="form-label" for="form3Examplev2">Name</label>
 															</div>
 
 														</div>
+
 														<div class="col-md-6 mb-4 pb-2">
 
 															<div class="form-outline">
-																<input type="text" id="form3Examplev3" th:field="*{last_Name}"
-																	class="form-control form-control-lg" /> <label
-																	class="form-label" for="form3Examplev3">Last
-																	name</label>
-															</div>
-
-														</div>
-														<div class="col-md-6 mb-4 pb-2">
-
-															<div class="form-outline">
-																<input type="text" id="form3Examplev2" th:field="*{mobile}"
+																<input type="text" id="form3Examplev2"
+																	th:field="*{mobile}"
 																	class="form-control form-control-lg" /> <label
 																	class="form-label" for="form3Examplev2">Mobile</label>
 															</div>
 
 														</div>
 														<div class="col-md-6 mb-4 pb-2">
+															<div class="form-outline">
+																<input type="text" id="form3Examplev4"
+																	th:field="*{company}"
+																	class="form-control form-control-lg" /> <label
+																	class="form-label" for="form3Examplev4">Company</label>
+															</div>
+														</div>
+														<div class="col-md-6 mb-4 pb-2">
 
 															<div class="form-outline">
-																<input type="text" id="form3Examplev3"  th:field="*{email}"
+																<input type="text" id="form3Examplev5"
+																	th:field="*{address}"
 																	class="form-control form-control-lg" /> <label
-																	class="form-label" for="form3Examplev3">Email</label>
+																	class="form-label" for="form3Examplev5">Address</label>
 															</div>
 
 														</div>
-													</div>
-
-
-													<div class="mb-4 pb-2">
-														<div class="form-outline">
-															<input type="text" id="form3Examplev4" th:field="*{company}"
-																class="form-control form-control-lg" /> <label
-																class="form-label" for="form3Examplev4">Company</label>
-														</div>
-													</div>
-													<div class="mb-4 pb-2 mb-md-0 pb-md-0">
-
-														<div class="form-outline">
-															<input type="text" id="form3Examplev5" th:field="*{address}"
-																class="form-control form-control-lg" /> <label
-																class="form-label" for="form3Examplev5">Address</label>
-														</div>
 
 													</div>
+
+
+
 
 													<div class="row">
 
-														<div class="col-12">
+														<div class="col-12 mt-3">
 															<h5>Login Details</h5>
 														</div>
 														<div class="mb-4 col-md-6">
 															<div class="form-outline form-white">
 																<input type="text" id="form3Examplea9"
+																	th:field="*{email}"
 																	class="form-control form-control-lg" /> <label
-																	class="form-label" for="form3Examplea9">Username</label>
+																	class="form-label" for="form3Examplea9">Email</label>
 															</div>
 														</div>
 														<div class="mb-4 col-md-6">
 															<div class="form-outline form-white">
 																<input type="text" id="form3Examplea9"
+																	th:field="*{password}"
 																	class="form-control form-control-lg" /> <label
 																	class="form-label" for="form3Examplea9">Password</label>
 															</div>
@@ -350,14 +321,14 @@
 													<div
 														class="form-check d-flex justify-content-start mb-4 pb-3">
 														<input class="form-check-input me-3" type="checkbox"
-															value="" id="form2Example3c" /> <label
+															value="" id="form2Example3c" required /> <label
 															class="form-check-label" for="form2Example3"> I
-															do accept the <a href="#!"><u>Terms and
-																	Conditions</u></a> of your site.
+															do accept the <a href="#!">Terms and
+																	Conditions</a> of your site.
 														</label>
 													</div>
 
-													<button type="button" class="btn btn-success btn-lg"
+													<button type="submit" class="btn btn-success btn-lg"
 														data-mdb-ripple-color="dark">Register</button>
 												</form>
 											</div>

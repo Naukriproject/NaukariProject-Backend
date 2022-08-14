@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:object="${job}" method="post" th:action="@{/applyjob/1}">
+	
+	<input type="text" th:field="*{salary}"> 
+	<input type="text" th:field="*{title}">
+	<input type="text" th:field="*{description}">
+	<input type="text" th:field="*{district}">
+	<input type="text" th:field="*{experience}">
+	<input type="text" th:field="*{postingDate}">
+	<input type="text" th:field="*{skill}">
+	<input type="text" th:field="*{state}">
+	<input type="text" th:field="*{jobId}">
+	<div th:each="employer: ${employer}">
+		<input type="text" th:field="*{employer.employerId}">
+	</div>
+	<button type="submit" >Submit</button>
+</form>
+</body>
+</html>

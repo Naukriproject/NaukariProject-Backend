@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jobportal.spring.entities.Employee;
-import com.jobportal.spring.services.EmployeeService;
+import com.jobportal.spring.entities.JobSeeker;
+import com.jobportal.spring.services.JobSeekerService;
 import com.jobportal.spring.services.MyUserDetailsService;
 import com.jobportal.spring.util.JwtUtil;
 
 @RestController
 @RequestMapping("/user")
-public class EmployeeController {
+public class JobSeekerController {
 	
 	@Autowired
-	EmployeeService employeeService;
+	JobSeekerService jobSeekerService;
 	
 	@Autowired
 	MyUserDetailsService myUserDetailsService;
@@ -33,41 +33,41 @@ public class EmployeeController {
 	
 	
 	// get Employee List
-	@GetMapping("/employee")
-	public List<Employee> getList()
+	@GetMapping("/jobseeker")
+	public List<JobSeeker> getList()
 	{
 				
-		return this.employeeService.getEmployee();
+		return this.jobSeekerService.getJobSeeker();
 	}
 	
 	// get Employee by Id
-	@GetMapping("/employee/{Id}")
-	public Optional<Employee> getListById(@PathVariable("Id") int Id)
+	@GetMapping("/jobseeker/{Id}")
+	public JobSeeker getListById(@PathVariable("Id") int Id)
 	{
-		return this.employeeService.getEmployee(Id);
+		return this.jobSeekerService.getJobSeeker(Id);
 	}
 	
 	// add Employee
-	@PostMapping("/employee")
-	public Employee addEmployee(@RequestBody() Employee employee)
+	@PostMapping("/jobseeker")
+	public JobSeeker addEmployee(@RequestBody() JobSeeker jobseeker)
 	{
-		Employee result = this.employeeService.addEmployee(employee);
+		JobSeeker result = this.jobSeekerService.addJobSeeker(jobseeker);
 		return result;
 	}
 	
 	// update Employee by Id 
-	@PutMapping("/employee/{Id}")
-	public Employee updateEmployee(@RequestBody() Employee employee, @PathVariable("Id") int Id)
+	@PutMapping("/jobseeker/{Id}")
+	public JobSeeker updateEmployee(@RequestBody() JobSeeker jobseeker, @PathVariable("Id") int Id)
 	{
-		this.employeeService.updateEmployee(employee, Id);
-		return employee;
+		this.jobSeekerService.updateJobSeeker(jobseeker, Id);
+		return jobseeker;
 	}
 	
 	// delete employee by id
-	@DeleteMapping("/employee/{Id}")
+	@DeleteMapping("/jobseeker/{Id}")
 	public void deleteEmployee(@PathVariable("Id") int Id) 
 	{
-		this.employeeService.deleteEmployee(Id);
+		this.jobSeekerService.deleteJobSeeker(Id);
 	}
 
 }
